@@ -34,3 +34,22 @@ plugins: [
 ```
 
 (or whatever secure mechanism you choose for supplying the API key created above).
+
+## Accessing via GraphQL
+
+The resulting nodes can be added to a GraphQL `pageQuery` as follows:
+
+```
+childrenPlaylistCollection {
+  childrenPlaylist {
+    name
+    title
+    childrenPlaylistVideo {
+      date,
+      description,
+      title
+      url
+    }
+  }
+}
+```
