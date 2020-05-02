@@ -33,4 +33,4 @@ plugins: [
 ]
 ```
 
-(or whatever secure mechanism you choose for supplying the API key created above.)
+(or whatever secure mechanism you choose for supplying the API key created above).
