@@ -1,0 +1,26 @@
+{
+  "name": "gatsby-transformer-playlists",
+  "version": "0.1.0",
+  "description": "Add YouTube playlist content to your Gatsby site",
+  "main": "gatsby-node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pofallon/gatsby-transformer-playlists.git"
+  },
+  "keywords": [
+    "gatsby",
+    "youtube"
+  ],
+  "author": "Paul O'Fallon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pofallon/gatsby-transformer-playlists/issues"
+  },
+  "homepage": "https://github.com/pofallon/gatsby-transformer-playlists#readme",
+  "dependencies": {
+    "youtube-playlist-summary": "^2.1.3"
+  }
+}
