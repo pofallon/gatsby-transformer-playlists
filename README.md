@@ -53,3 +53,5 @@ childrenPlaylistCollection {
   }
 }
 ```
+
+This work resulting in this plugin was originally inspired by [this blog post](https://swizec.com/blog/youtube-data-source-gatsbyjs/swizec/8347).

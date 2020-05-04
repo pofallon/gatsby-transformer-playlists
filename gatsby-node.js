@@ -36,7 +36,7 @@ exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest
         date: v.publishedAt,
         url: v.videoUrl,
       }
-      return makeNode({ obj, id: v.videoId, type: 'playlistVideo', parent })
+      return makeNode({ obj, id: createNodeId(`${node.id}-${v.videoId}`), type: 'playlistVideo', parent })
     })
   }
 
@@ -48,10 +48,13 @@ exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest
     const playlistNodeIds = await Promise.all(playlists.map(async (playlist) => {
       
       const results = await ps.getPlaylistItems(playlist.id)
-      const videoNodeIds = makeVideoNodes(results.items, playlist.id)
+
+      const playlistId = createNodeId(`${node.id}-${playlist.id}`)
+      const videoNodeIds = makeVideoNodes(results.items, playlistId)
+      
       return makeNode({
         obj: { title: results.playlistTitle, name: playlist.name },
-        id: playlist.id,
+        id: playlistId,
         type: 'playlist',
         children: videoNodeIds,
         parent: playlistCollectionNodeId
