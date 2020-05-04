@@ -35,23 +35,4 @@ plugins: [
 
 (or whatever secure mechanism you choose for supplying the API key created above).
 
-## Accessing via GraphQL
-
-The resulting nodes can be added to a GraphQL `pageQuery` as follows:
-
-```
-childrenPlaylistCollection {
-  childrenPlaylist {
-    name
-    title
-    childrenPlaylistVideo {
-      date,
-      description,
-      title
-      url
-    }
-  }
-}
-```
-
 This work resulting in this plugin was originally inspired by [this blog post](https://swizec.com/blog/youtube-data-source-gatsbyjs/swizec/8347).
