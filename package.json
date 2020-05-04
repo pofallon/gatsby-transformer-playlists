@@ -1,6 +1,6 @@
 {
   "name": "gatsby-transformer-playlists",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Add YouTube playlist content to your Gatsby site",
   "main": "gatsby-node.js",
   "scripts": {
