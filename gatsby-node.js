@@ -28,17 +28,10 @@ exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest
     return id
   }
 
-  const makeVideoNodes = (videos, parent) => {
-    return videos.map(v => {
-      const obj = {
-        title: v.title,
-        description: v.description,
-        date: v.publishedAt,
-        url: v.videoUrl,
-      }
-      return makeNode({ obj, id: createNodeId(`${node.id}-${v.videoId}`), type: 'playlistVideo', parent })
-    })
-  }
+  const makeVideoNodes = (videos, parent) =>
+    videos.map(v =>
+      makeNode({ obj: v, id: createNodeId(`${node.id}-${v.videoId}`), type: 'playlistVideo', parent })
+    )
 
   if (node.frontmatter && node.frontmatter.playlists) {
 
