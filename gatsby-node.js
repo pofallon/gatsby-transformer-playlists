@@ -38,14 +38,14 @@ exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest
     const playlists = node.frontmatter.playlists
     const playlistCollectionNodeId = createNodeId(`${node.id}-playlists`)
 
-    const playlistNodeIds = await Promise.all(playlists.map(async (playlist) => {
+    await Promise.all(playlists.map(async (playlist) => {
       
       const results = await ps.getPlaylistItems(playlist.id)
 
       const playlistId = createNodeId(`${node.id}-${playlist.id}`)
       const videoNodeIds = makeVideoNodes(results.items, playlistId)
       
-      return makeNode({
+      makeNode({
         obj: { title: results.playlistTitle, name: playlist.name },
         id: playlistId,
         type: 'playlist',
@@ -53,9 +53,9 @@ exports.onCreateNode = async ({ node, actions, createNodeId, createContentDigest
         parent: playlistCollectionNodeId
       })
 
+      createParentChildLink({ parent: node, child: { id: playlistId } })
+
     }))
 
-    makeNode({ type: 'playlistCollection', id: playlistCollectionNodeId, children: playlistNodeIds })
-    createParentChildLink({ parent: node, child: { id: playlistCollectionNodeId } })
   }
 }
